@@ -59,7 +59,8 @@ ajax.post = function (url, data, callback, async) {
 ajax.get("https://en.wikipedia.org/w/api.php?action=query&format=json&uselang=simple&prop=extracts&titles=Phil%20Collins&exintro=1&explaintext=1&exsectionformat=plain&origin=*", {}, e => {
 	const res = JSON.parse(e);
 	if (res.query.pages[Object.keys(res.query.pages)].extract.includes('died')) {
-		document.querySelector('#status').innerHTML = 'dead'
+		document.querySelector('#status').innerHTML = 'dead';
+		document.body.classList.add('invert');
 	} else {
 		console.log('alive');
 	};
